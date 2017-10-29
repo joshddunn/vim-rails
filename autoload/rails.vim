@@ -913,6 +913,8 @@ function! s:app_static_rails_command(cmd) dict abort
     let cmd = 'script/'.a:cmd
   elseif self.has('bundler')
     return 'bundle exec rails ' . a:cmd
+  elseif self.has('docker')
+    return 'docker-compose run web rails ' . a:cmd
   else
     return 'rails '.a:cmd
   endif
