@@ -572,6 +572,8 @@ function! rails#singularize(word)
   let word = a:word
   if word =~? '\.js$' || word == ''
     return word
+  elseif has_key(g:rails_custom_singularize, s:sub(word, '^:', ''))  
+    return g:rails_custom_singularize[s:sub(word, '^:', '')]
   endif
   let word = s:sub(word,'eople$','ersons')
   let word = s:sub(word,'%([Mm]ov|[aeio])@<!ies$','ys')
@@ -588,6 +590,8 @@ function! rails#pluralize(word)
   let word = a:word
   if word == ''
     return word
+  elseif has_key(g:rails_custom_pluralize, s:sub(word, '^:', ''))  
+    return g:rails_custom_pluralize[s:sub(word, '^:', '')]
   endif
   let word = s:sub(word,'[aeio]@<!y$','ie')
   let word = s:sub(word,'%(nd|rt)@<=ex$','ice')
