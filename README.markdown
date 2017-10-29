@@ -99,6 +99,20 @@ version only.
 It got yanked after increasing contention over JavaScript.  Check out
 [sleuth.vim](https://github.com/tpope/vim-sleuth).
 
+> Why isn't rails.vim correctly singularizing / pluralizing words?
+
+The singularize / pluralize functions in rails.vim only implement some of the rules that rails does. If these are insufficient, you can build custom rules by adding
+
+    let g:rails_custom_singularize = {
+          \ 'moves': 'move',
+        \ }
+
+    let g:rails_custom_pluralize = {
+          \ 'species': 'species', 
+        \ }
+
+into your vimrc.
+
 ## Self-Promotion
 
 Like rails.vim? Follow the repository on
