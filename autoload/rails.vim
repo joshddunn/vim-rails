@@ -4770,8 +4770,8 @@ let s:default_projections = {
       \  "app/graphql/types/*_type.rb": {
       \    "affinity": "types",
       \    "template": ["Types::{camelcase|capitalize|colons}Type = GraphQL::ObjectType.define do", 
-      \                 "name \"{camelcase|capitalize|colons}\"",
-      \                 "description \"\"",
+      \                 "  name \"{camelcase|capitalize|colons}\"",
+      \                 "  description \"\"",
       \                 "end"],
       \    "type": "types"
       \  },
