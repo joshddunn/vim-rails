@@ -4764,12 +4764,15 @@ let s:default_projections = {
       \  },
       \  "app/models/*.rb": {
       \    "affinity": "model",
-      \    "template": ["class {camelcase|capitalize|colons}", "end"],
+      \    "template": ["class {camelcase|capitalize|colons} < ApplicationRecord", "end"],
       \    "type": "model"
       \  },
       \  "app/graphql/types/*_type.rb": {
       \    "affinity": "types",
-      \    "template": ["class {camelcase|capitalize|colons}", "end"],
+      \    "template": ["Types::{camelcase|capitalize|colons}Type = GraphQL::ObjectType.define do", 
+      \                 "name \"{camelcase|capitalize|colons}\"",
+      \                 "description \"\"",
+      \                 "end"],
       \    "type": "types"
       \  },
       \  "app/serializers/*_serializer.rb": {
