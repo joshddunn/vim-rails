@@ -4767,7 +4767,7 @@ let s:default_projections = {
       \    "template": ["class {camelcase|capitalize|colons}", "end"],
       \    "type": "model"
       \  },
-      \  "app/graphql/types/*.rb": {
+      \  "app/graphql/types/*_type.rb": {
       \    "affinity": "types",
       \    "template": ["class {camelcase|capitalize|colons}", "end"],
       \    "type": "types"
