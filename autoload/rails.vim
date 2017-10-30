@@ -4768,12 +4768,12 @@ let s:default_projections = {
       \    "type": "model"
       \  },
       \  "app/graphql/types/*_type.rb": {
-      \    "affinity": "types",
+      \    "affinity": "type",
       \    "template": ["Types::{camelcase|capitalize|colons}Type = GraphQL::ObjectType.define do", 
       \                 "  name \"{camelcase|capitalize|colons}\"",
       \                 "  description \"\"",
       \                 "end"],
-      \    "type": "types"
+      \    "type": "type"
       \  },
       \  "app/serializers/*_serializer.rb": {
       \    "template": ["class {camelcase|capitalize|colons}Serializer < ActiveModel::Serializer", "end"],
