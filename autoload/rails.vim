@@ -862,6 +862,7 @@ function! s:app_has(feature) dict
         \'test': 'test/',
         \'spec': 'spec/',
         \'bundler': 'Gemfile|gems.locked',
+        \'docker': 'docker-compose.yml',
         \'rails2': 'script/about',
         \'rails3': 'config/application.rb',
         \'rails5': 'app/assets/config/manifest.js|config/initializers/application_controller_renderer.rb',
@@ -907,7 +908,9 @@ function! s:app_ruby_script_command(cmd) dict abort
 endfunction
 
 function! s:app_static_rails_command(cmd) dict abort
-  if self.has_path('bin/rails')
+  if self.has('docker')
+    let cmd = 'docker-compose run web rails '.a:cmd
+  elseif self.has_path('bin/rails')
     let cmd = 'bin/rails '.a:cmd
   elseif self.has_path('script/rails')
     let cmd = 'script/rails '.a:cmd
