@@ -570,10 +570,11 @@ function! rails#singularize(word)
   " Probably not worth it to be as comprehensive as Rails but we can
   " still hit the common cases.
   let word = a:word
+  let last_word = split(s:sub(word, '^:', ''),"_")[-1] 
   if word =~? '\.js$' || word == ''
     return word
-  elseif has_key(g:rails_custom_singularize, s:sub(word, '^:', ''))  
-    return g:rails_custom_singularize[s:sub(word, '^:', '')]
+  elseif has_key(g:rails_custom_singularize, last_word)  
+    return s:sub(word, last_word . '$', g:rails_custom_singularize[last_word])
   endif
   let word = s:sub(word,'eople$','ersons')
   let word = s:sub(word,'%([Mm]ov|[aeio])@<!ies$','ys')
