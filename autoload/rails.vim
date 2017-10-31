@@ -570,7 +570,7 @@ function! rails#singularize(word)
   " Probably not worth it to be as comprehensive as Rails but we can
   " still hit the common cases.
   let word = a:word
-  let last_word = reverse(split(s:sub(word, '^:', ''), "_"))[0] 
+  let last_word = s:sub(s:sub(word, '^:', ''), '^.+_', '')
   if word =~? '\.js$' || word == ''
     return word
   elseif has_key(g:rails_custom_singularize, last_word)  
