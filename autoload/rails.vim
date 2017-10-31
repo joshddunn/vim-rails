@@ -589,10 +589,11 @@ endfunction
 
 function! rails#pluralize(word)
   let word = a:word
+  let last_word = s:sub(word, '^.+_|:', '')
   if word == ''
     return word
-  elseif has_key(g:rails_custom_pluralize, s:sub(word, '^:', ''))  
-    return g:rails_custom_pluralize[s:sub(word, '^:', '')]
+  elseif has_key(g:rails_custom_pluralize, last_word)  
+    return s:sub(word, last_word . '$', g:rails_custom_pluralize[last_word])
   endif
   let word = s:sub(word,'[aeio]@<!y$','ie')
   let word = s:sub(word,'%(nd|rt)@<=ex$','ice')
