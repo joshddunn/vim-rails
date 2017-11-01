@@ -4784,7 +4784,7 @@ let s:default_projections = {
       \    "affinity": "resolver",
       \    "template": ["class Resolvers::{camelcase|capitalize|colons} < GraphQL::Function", 
       \                 "  type types.String",
-                        "",
+      \                 "",
       \                 "  def call(_obj, args, ctx)",
       \                 "  end",
       \                 "end"],
