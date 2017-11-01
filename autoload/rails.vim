@@ -4780,6 +4780,16 @@ let s:default_projections = {
       \                 "end"],
       \    "type": "type"
       \  },
+      \  "app/graphql/resolvers/*.rb": {
+      \    "affinity": "resolver",
+      \    "template": ["class Resolvers::{camelcase|capitalize|colons} < GraphQL::Function", 
+      \                 "  type types.String",
+                        "",
+      \                 "  def call(_obj, args, ctx)",
+      \                 "  end",
+      \                 "end"],
+      \    "type": "resolver"
+      \  },
       \  "app/serializers/*_serializer.rb": {
       \    "template": ["class {camelcase|capitalize|colons}Serializer < ActiveModel::Serializer", "end"],
       \    "type": "serializer"
