@@ -4790,6 +4790,19 @@ let s:default_projections = {
       \                 "end"],
       \    "type": "resolver"
       \  },
+      \  "app/graphql/mutations/*_mutation.rb": {
+      \    "affinity": "mutation",
+      \    "template": ["Mutations::{camelcase|capitalize|colons}Mutation = GraphQL::Relay::Mutation.define do", 
+      \                 "  name \"{camelcase|capitalize|colons}\"",
+      \                 "",
+      \                 "  # return_field :return_field, return_type",
+      \                 "  # input_field :input_field, !input_type",
+      \                 "",
+      \                 "  resolve ->(obj, input, ctx) {",
+      \                 "  }",
+      \                 "end"],
+      \    "type": "mutation"
+      \  },
       \  "app/serializers/*_serializer.rb": {
       \    "template": ["class {camelcase|capitalize|colons}Serializer < ActiveModel::Serializer", "end"],
       \    "type": "serializer"
